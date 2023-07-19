@@ -22,19 +22,16 @@ best_model <- aml@leader
 
 h2o.varimp_plot(best_model)
 
-# Get the leaderboard
 lb <- aml@leaderboard
-lb
-# Get model ids for all models in the AutoML Leaderboard
+
 model_ids <- as.data.frame(lb[,"model_id"])[,"model_id"]
-model_ids
+
 # Get variable importance for each model
 for (model_id in model_ids) {
   model <- h2o.getModel(model_id)
   print(paste("Variable importance for model", model_id))
   print(h2o.varimp(model))
 }
-# compare to a baseline mean model
 # Compute the mean value of the target variable in the training data
 mean_value <- mean(train[,y])
 
