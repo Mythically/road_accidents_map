@@ -6,7 +6,7 @@ remove_leading_zero <- function(accident_reference) {
   sub("^0+(?!$)", "", accident_reference, perl = TRUE)
 }
 # load the data
-accidents_data <- readRDS("../filtered_accidents_data.rds")
+accidents_data <- readRDS("../../filtered_accidents_data.rds")
 # columns to keep
 accidents_data_cols <- c("accident_index","accident_year","accident_reference","longitude","latitude","accident_severity","number_of_vehicles","number_of_casualties","date","day_of_week","time","first_road_class","road_type","speed_limit","junction_detail","junction_control","second_road_class","pedestrian_crossing_human_control","pedestrian_crossing_physical_facilities","light_conditions","weather_conditions","road_surface_conditions","special_conditions_at_site","carriageway_hazards")
 # keep only the selected columns
@@ -22,7 +22,7 @@ accidents_data <- accidents_data %>% filter(accident_severity == 1 | accident_se
 # visually verify that the columns is correct
 all(accidents_data_cols %in% names(accidents_data))
 # repeat
-casualties_data <- readRDS("../filtered_casualties_data.rds")
+casualties_data <- readRDS("../../filtered_casualties_data.rds")
 casualties_data$accident_reference <- sapply(casualties_data$accident_reference, remove_leading_zero)
 casualties_data_cols <- c("accident_index","accident_year","accident_reference","vehicle_reference","casualty_reference","casualty_class","sex_of_casualty","age_of_casualty","age_band_of_casualty","casualty_severity","pedestrian_location","pedestrian_movement","car_passenger","bus_or_coach_passenger","pedestrian_road_maintenance_worker","casualty_type")
 casualties_data <- select(casualties_data, all_of(casualties_data_cols))
@@ -37,7 +37,7 @@ merged$latitude <- as.numeric(merged$latitude)
 merged <- merged[complete.cases(merged), ]
 # remove duplicated columns
 merged <- merged %>% select(-"accident_index.y", -"accident_year.y")
-vehicles_data <- readRDS("../filtered_vehicles_data.rds")
+vehicles_data <- readRDS("../../filtered_vehicles_data.rds")
 vehicles_data$accident_reference <- sapply(vehicles_data$accident_reference, remove_leading_zero)
 vehicles_data$accident_reference <- as.character(vehicles_data$accident_reference)
 vehicles_data_cols <- c("accident_index", "accident_year", "accident_reference", "vehicle_reference", "vehicle_type", "towing_and_articulation", "vehicle_manoeuvre", "vehicle_direction_from", "vehicle_direction_to", "vehicle_location_restricted_lane", "junction_location", "skidding_and_overturning", "hit_object_in_carriageway", "vehicle_leaving_carriageway", "hit_object_off_carriageway", "first_point_of_impact", "vehicle_left_hand_drive", "journey_purpose_of_driver", "sex_of_driver", "age_of_driver", "age_band_of_driver", "engine_capacity_cc", "propulsion_code", "age_of_vehicle", "generic_make_model", "driver_home_area_type")
