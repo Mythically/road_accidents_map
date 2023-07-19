@@ -1,7 +1,7 @@
 ![Application Screenshot](https://github.com/Mythically/r-code/blob/master/img/app_screenshot.png?raw=true)
 # 🚦 Public Road Accidents Map
 
-This repository contains a Shiny application that displays a toggleable heatmap and markers overlay 📍 for public road accidents data from the UK government. The focus of the application is on pedestrian 🚶‍♂️ and cyclist 🚴‍♂️ casualties, with the option to include vehicle-only accidents alongside pedestrian-related ones.
+This repository contains a Shiny application that displays a toggleable heatmap and markers overlay 📍 for public road accidents data from the UK government. The focus of the data is on pedestrian 🚶‍♂️ and cyclist 🚴‍♂️ casualties, with the option to include vehicle-only accidents alongside pedestrian-related ones.
 ### ✨ Features
 
  - Heatmap: Visualizes accident distribution using a heatmap layer 🌡️.
