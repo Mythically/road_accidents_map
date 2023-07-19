@@ -1,0 +1,62 @@
+.expand-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10000;
+}
+
+#map-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: all 0.5s;
+}
+
+#map-container.collapsed {
+    left: -50%;
+}
+
+.leaflet-control-search {
+    left: 2px !important;
+}
+body, html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+#map {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.container-fluid {
+    padding-left: 0;
+}
+#accidents_by_day,  #accidents_by_weather, #accidents_by_light_conditions, #accidents_by_road_surface, #accidents_by_speed_limit, #accidents_by_junction_details, #accidents_by_ped_crossing{
+    background-color: #f5f5f5;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-family: monospace;
+    white-space: pre-wrap;
+}
+#map {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 50vw !important;
+}
+
+.shiny-split-layout > div:nth-child(1) {
+    width: 50vw !important;
+}
+
+.shiny-split-layout > div:nth-child(2) {
+    width: 49% !important;
+}
+p {
+    white-space: pre-line;
+}
